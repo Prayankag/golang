@@ -1,0 +1,21 @@
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: git-vs
+  namespace: git
+  labels:
+    app: git
+    version: 0.0.1
+    backstage.io/kubernetes-id: git
+spec:
+  gateways:
+  - istio-system/istio-ingressgateway
+  hosts:
+  - git.diegoluisi.eti.br
+  http:
+  - name: primary
+    route:
+    - destination:
+        host: git-svc
+      weight: 100
