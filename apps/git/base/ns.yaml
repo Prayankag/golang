@@ -1,0 +1,12 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: git
+  labels:
+    kubernetes.io/metadata.name: git
+    backstage.io/kubernetes-id: git
+    istio-injection: enabled
+spec:
+  finalizers:
+  - kubernetes
